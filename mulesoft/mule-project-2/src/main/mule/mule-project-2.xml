@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="e7fa1692-7920-4747-8aa6-d154b056a1a1" >
+		<http:listener-connection host="${http.host}" port="${http.port}" />
+	</http:listener-config>
+	<configuration-properties doc:name="Configuration properties" doc:id="2a58b4e6-2763-48d7-872c-147c5ed401e1" file="app-properties.yaml" />
+	<flow name="mule-project-2Flow" doc:id="666a02c7-6912-4886-b015-548e2d4970b4" >
+		<http:listener doc:name="Listener" doc:id="51c0141b-2d88-45f3-be3b-bc99342bde00" config-ref="HTTP_Listener_config" path="/m2"/>
+		<set-payload value="#['Project2']" doc:name="Set Payload" doc:id="fbc99caf-5aa8-48d3-a8b5-199508b074a0" />
+	</flow>
+</mule>

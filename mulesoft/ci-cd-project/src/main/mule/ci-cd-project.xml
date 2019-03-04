@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="743a4cd6-7df8-4dd0-8aff-fcf113354774" >
+		<http:listener-connection host="${http.host}" port="${http.port}" />
+	</http:listener-config>
+	<configuration-properties doc:name="Configuration properties" doc:id="765fd4e7-31d6-4ad5-94bd-3f16c89015fe" file="app-properties.yaml" />
+	<flow name="ci-cd-projectFlow" doc:id="daf328ee-64ac-4a3e-ae6b-7d3a7e93b05d" >
+		<http:listener doc:name="Listener" doc:id="9e6ec6d5-e2a4-47f2-afb0-760d1114444a" config-ref="HTTP_Listener_config" path="/ci-cd"/>
+		<set-payload value="#['CI-CD-Pass']" doc:name="Set Payload" doc:id="d18597db-43d8-4692-8da3-2bd7152b874e" />
+	</flow>
+</mule>
