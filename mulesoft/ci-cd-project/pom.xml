@@ -36,6 +36,9 @@
 						<applicationName>${project.artifactId}</applicationName>
 						<workers>1</workers>
 						<workerType>MICRO</workerType>
+						<properties>
+                             <env1>${env}</env1>
+                         </properties>
 					</cloudHubDeployment>
 				</configuration>
 			</plugin>
