@@ -38,6 +38,9 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
 						<applicationName>${project.artifactId}</applicationName>
 						<workers>1</workers>
 						<workerType>MICRO</workerType>
+						<properties>
+                             <env>${env}</env>
+                         </properties>
 					</cloudHubDeployment>
 				</configuration>
 			</plugin>
